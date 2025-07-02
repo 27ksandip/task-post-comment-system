@@ -21,7 +21,7 @@ class CommentRequest extends Request
     // Write your methods using {Controller Method Name}Rules, or {HTTP Method}MethodRules syntax.
     // For example, when index method in the controller is called a method called indexRules will be triggered here if it is exists.
 
-    public function updateRules() {
+    public function createRules() {
         return [
             'comment' => 'required|string|max:255',
             'post_id' => 'required'

@@ -2,13 +2,12 @@
 
 namespace App\Models\Comments;
 
-use App\Models\BaseModel;
 use Shamaseen\Repository\Utility\Model as Model;
 
 /**
  * Class Comment.
  */
-class Comment extends BaseModel
+class Comment extends Model
 {
     /*
     * Fill in your fillables here
