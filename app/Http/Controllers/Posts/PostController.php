@@ -8,7 +8,6 @@ use App\Http\Resources\Posts\PostCollection;
 use App\Http\Resources\Posts\PostResource;
 use App\Policies\Posts\PostPolicy;
 use App\Repositories\Posts\PostRepository;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Class PostController.
@@ -45,24 +44,8 @@ class PostController extends Controller
 
     public function index(): mixed
     {
-        $posts = $this->repository->get()->where('user_id',Auth::id());
+        $posts = $this->repository->index();
 
         return view($this->viewIndex, compact('posts'));
-    }
-
-    public function show($id): mixed
-    {
-        $post = $this->repository->find($id);
-        $this->authorize('view', $post);
-        
-        return view($this->viewShow, compact('post'));
-    }
-
-    public function destroy($id): mixed
-    {
-        $post = $this->repository->findOrFail($id);
-        $this->authorize('delete', $post);
-        
-        return parent::destroy($id);
     }
 }

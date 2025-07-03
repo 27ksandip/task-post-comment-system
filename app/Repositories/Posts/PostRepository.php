@@ -34,4 +34,9 @@ class PostRepository extends AbstractRepository
 
         return $this->model->create($data);
     }
+
+    public function index()
+    {
+        return $this->getModelClass()::where('user_id', auth()->id())->get();
+    }
 }

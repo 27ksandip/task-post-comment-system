@@ -12,17 +12,24 @@ class PostPolicy
 
     // Any method here that match the controller method name will be automatically called.
 
-    public function store(User $user) {
+    public function store(User $user)
+    {
         return $user->id;
     }
 
-    public function delete(User $user, Post $post): bool
+    public function show()
     {
-        return $user->id === $post->user_id;
+        $getPostId = request()->route('post');
+        $postUserId = Post::where('id', $getPostId)->pluck('user_id')->first();
+
+        return auth()->id() == $postUserId;
     }
 
-    public function view(User $user, Post $post): bool
+    public function destroy()
     {
-        return $user->id === $post->user_id;
+        $getPostId = request()->route('post');
+        $postUserId = Post::where('id', $getPostId)->pluck('user_id')->first();
+
+        return auth()->id() == $postUserId;
     }
 }
