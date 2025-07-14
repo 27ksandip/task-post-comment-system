@@ -21,6 +21,8 @@ class CommentRepository extends AbstractRepository
     public function getModelClass(): string
     {
         return Comment::class;
+
+        
     }
 
     public function create(array $data = []): Model
