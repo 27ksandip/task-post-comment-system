@@ -45,7 +45,9 @@ class PostController extends Controller
     public function index(): mixed
     {
         $posts = $this->repository->index();
-
+        // this is test by new commit
+        // this is test by new commit
+        // this is test by new commit
         return view($this->viewIndex, compact('posts'));
     }
 }

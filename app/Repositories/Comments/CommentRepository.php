@@ -21,8 +21,9 @@ class CommentRepository extends AbstractRepository
     public function getModelClass(): string
     {
         return Comment::class;
-
-        
+        // this is test by new commit
+        // this is test by new commit
+        // this is test by new commit
     }
 
     public function create(array $data = []): Model
